@@ -4885,7 +4885,6 @@ GameObject:
   - component: {fileID: 54943286195798258}
   - component: {fileID: 114536486880056996}
   - component: {fileID: 114603038459166214}
-  - component: {fileID: 114565515371635964}
   - component: {fileID: 82428518445736458}
   - component: {fileID: 114908469238434264}
   - component: {fileID: 114193652483182726}
@@ -4893,6 +4892,7 @@ GameObject:
   - component: {fileID: 114253824686066012}
   - component: {fileID: 114139210239060356}
   - component: {fileID: 1012321234660333370}
+  - component: {fileID: 743484365980594874}
   m_Layer: 11
   m_Name: Player Fighter Enemy
   m_TagString: Untagged
@@ -5002,29 +5002,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootDropped: 16
---- !u!114 &114565515371635964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1300474929184216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a4f7293b07e4698a4e3b652679f0c75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: 
-  projectile: {fileID: 1797349743178286, guid: efcfdd276fd9a4bce9c848912a90dc0b, type: 3}
-  projectilePoints:
-  - {fileID: 4004142885804742}
-  - {fileID: 4254310097177378}
-  epicenter: {fileID: 4527377347391372}
-  isMultiAttack: 0
-  fireRate: 1
-  randomAudioSource: {fileID: 114253824686066012}
-  towerTargetter: {fileID: 114560507477559634}
-  radiusEffectColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!82 &82428518445736458
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5215,7 +5192,31 @@ MonoBehaviour:
   targetTransform: {fileID: 4175779797794324}
   appliedEffectOffset: {x: 0, y: 0, z: 0}
   appliedEffectScale: 1
-  attacking: {fileID: 0}
+  attacking: {fileID: 743484365980594874}
+  player: {fileID: 0}
+--- !u!114 &743484365980594874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300474929184216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c17283fe35587c40ad84954c574ece1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 
+  projectile: {fileID: 1797349743178286, guid: efcfdd276fd9a4bce9c848912a90dc0b, type: 3}
+  projectilePoints:
+  - {fileID: 4004142885804742}
+  - {fileID: 4254310097177378}
+  epicenter: {fileID: 4527377347391372}
+  isMultiAttack: 0
+  fireRate: 0
+  randomAudioSource: {fileID: 114253824686066012}
+  towerTargetter: {fileID: 114560507477559634}
+  radiusEffectColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1341545582985454
 GameObject:
   m_ObjectHideFlags: 0
