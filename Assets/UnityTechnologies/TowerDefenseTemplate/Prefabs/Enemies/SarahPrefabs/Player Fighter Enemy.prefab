@@ -4987,7 +4987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cf1cc7cb7e6b49f893f609dd57fce01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageableBehaviour: {fileID: 0}
+  damageableBehaviour: {fileID: 1012321234660333370}
   damageScale: 1
 --- !u!114 &114603038459166214
 MonoBehaviour:
@@ -5212,9 +5212,10 @@ MonoBehaviour:
     startingHealth: 0
     alignment:
       unityObjectReference: {fileID: 0}
-  targetTransform: {fileID: 0}
+  targetTransform: {fileID: 4175779797794324}
   appliedEffectOffset: {x: 0, y: 0, z: 0}
   appliedEffectScale: 1
+  attacking: {fileID: 0}
 --- !u!1 &1341545582985454
 GameObject:
   m_ObjectHideFlags: 0
