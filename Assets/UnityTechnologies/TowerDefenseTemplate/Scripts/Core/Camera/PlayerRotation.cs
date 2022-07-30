@@ -6,6 +6,7 @@ using UnityEngine;
 /// Rotates player on its axis depending on mouse axis input
 /// </summary>
 
+//rtcNote this class pertains only to FPS - should be addressed appropiately
 
 public class PlayerRotation : MonoBehaviour
 {

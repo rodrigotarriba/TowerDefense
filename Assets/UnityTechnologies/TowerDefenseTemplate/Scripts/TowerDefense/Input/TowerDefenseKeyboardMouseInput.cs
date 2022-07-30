@@ -95,6 +95,7 @@ namespace TowerDefense.Input
 					if (UnityInput.GetKeyDown(key))
 					{
 						Tower controller = LevelManager.instance.towerLibrary[key - KeyCode.Alpha1];
+						//rtcNote - here we detect if we can afford before liberating a new towerGhost
 						if (LevelManager.instance.currency.CanAfford(controller.purchaseCost))
 						{
 							if (m_GameUI.isBuilding)

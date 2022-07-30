@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Main class for FPS player movement 
+/// </summary>
+
+//rtcNote this class pertains only to FPS - should be addressed appropiately
+
 public class PlayerMovement : MonoBehaviour
 {
     private float xMovement;
@@ -54,8 +60,6 @@ public class PlayerMovement : MonoBehaviour
         fallingVelocity.y += gravity * Time.deltaTime;
 
         controller.Move(fallingVelocity * Time.deltaTime);
-
-
 
 
     }

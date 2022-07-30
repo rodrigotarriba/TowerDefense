@@ -8,6 +8,7 @@ namespace Core.Input
 	/// </summary>
 	public class KeyboardMouseInput : CameraInputScheme
 	{
+		//rtcRemove these are solely for panning on the camera
 		/// <summary>
 		/// Pan threshold (how near to the edge before we pan. Also the denominator for RMB pan)
 		/// </summary>
@@ -100,12 +101,14 @@ namespace Core.Input
 		{
 			if (cameraRig != null)
 			{
-				DoScreenEdgePan();
-				DoKeyboardPan();
-				DecayZoom();
+				//rtc removing these options
+				//DoScreenEdgePan();
+				//DoKeyboardPan();
+				//DecayZoom();
 			}
 		}
 
+		//rtcRemove - we will not be dragging anymore
 		/// <summary>
 		/// Called when we drag
 		/// </summary>
@@ -113,7 +116,8 @@ namespace Core.Input
 		{
 			if (cameraRig != null)
 			{
-				DoRightMouseDragPan(pointer);
+				//rtc remove this one
+				//DoRightMouseDragPan(pointer);
 			}
 		}
 
@@ -124,7 +128,8 @@ namespace Core.Input
 		{
 			if (cameraRig != null)
 			{
-				DoWheelZoom(wheel);
+				//rtc removed this one
+				//DoWheelZoom(wheel);
 			}
 		}
 
@@ -135,7 +140,8 @@ namespace Core.Input
 		{
 			if (cameraRig != null)
 			{
-				DoMiddleMousePan(pointer);
+				//rtc removed this
+				//DoMiddleMousePan(pointer);
 			}
 		}
 

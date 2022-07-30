@@ -127,8 +127,10 @@ namespace TowerDefense.UI.HUD
 		/// </summary>
 		public void OnClick()
 		{
+			//Check if the buttonTapped action has been given a reference to the BuildSidebar, especifically the OnButtonTapped method.
 			if (buttonTapped != null)
 			{
+				//if its not null, it runs the action with the current tower.
 				buttonTapped(m_Tower);
 			}
 		}
