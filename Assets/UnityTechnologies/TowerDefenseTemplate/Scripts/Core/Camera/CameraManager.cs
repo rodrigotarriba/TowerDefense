@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using TowerDefense.UI.HUD;
+using TowerDefense.Level;
+using TowerDefense.Towers;
 
 /// <summary>
 /// Handles use of multiple cameras during game and their respective player control settings 
@@ -42,6 +45,7 @@ public class CameraManager : MonoBehaviour
         }
 
 
+        //Input keys during game play, temp
         if (Input.GetKeyDown(KeyCode.J))
         {
             currentPlayerMode = PlayerMode.MainMenu;
@@ -56,6 +60,13 @@ public class CameraManager : MonoBehaviour
         {
             currentPlayerMode = PlayerMode.ShootingTower;
         }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            LevelManager.instance.BuildingCompleted();
+        }
+            
+            
     }
 
 
