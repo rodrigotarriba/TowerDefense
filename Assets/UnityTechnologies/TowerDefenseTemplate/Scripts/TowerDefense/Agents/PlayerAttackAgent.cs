@@ -126,8 +126,6 @@ public class PlayerAttackAgent : Agent
 					break;
 			}
 
-            
-
         }
 
         protected virtual void OnTargetTowerDestroyed(DamageableBehaviour tower)
