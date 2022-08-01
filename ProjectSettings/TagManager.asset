@@ -13,7 +13,7 @@ TagManager:
   - Water
   - UI
   - BuildableLayer
-  - 
+  - Player
   - PlacementLayer
   - PlacementGhosts
   - Towers

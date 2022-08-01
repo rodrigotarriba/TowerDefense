@@ -285,6 +285,7 @@ namespace TowerDefense.Targetting
 		/// </summary>
 		protected virtual void Update()
 		{
+			Debug.Log("Targetter update running");
 			m_SearchTimer -= Time.deltaTime;
 
 			if (m_SearchTimer <= 0.0f && m_CurrrentTargetable == null && m_TargetsInRange.Count > 0)
