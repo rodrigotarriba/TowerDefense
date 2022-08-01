@@ -43,8 +43,8 @@ public class TurretController : MonoBehaviour
 
 
         // limit the rotation in both axis
-        newTurretBaseRotation = Mathf.Clamp(newTurretBaseRotation, minXRotation, maxXRotation);
-        newTurretHeadRotation = Mathf.Clamp(newTurretBaseRotation, minYRotation, maxYRotation);
+        //newTurretBaseRotation = Mathf.Clamp(newTurretBaseRotation, minXRotation, maxXRotation);
+        //newTurretHeadRotation = Mathf.Clamp(newTurretBaseRotation, minYRotation, maxYRotation);
 
         // apply the rotation
         turretBase.localRotation = Quaternion.Euler(0f, newTurretBaseRotation, 0f);
