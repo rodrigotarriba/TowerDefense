@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1325897932}
   m_Layer: 0
-  m_Name: TurretHeadPivotPoint
+  m_Name: TurretBasePivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23,15 +23,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1325897931}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.594907, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 456378117371339364}
+  - {fileID: 4214589305218889980}
   m_Father: {fileID: 8065519247121214192}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2662328117459535499
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,7 +127,6 @@ GameObject:
   - component: {fileID: 4550296627711937739}
   - component: {fileID: 5901910992972103686}
   - component: {fileID: 6382690485866142499}
-  - component: {fileID: 1630551821}
   m_Layer: 0
   m_Name: Camera_TurretPOV
   m_TagString: Untagged
@@ -201,20 +200,38 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2876237255892130710}
   m_Enabled: 1
---- !u!114 &1630551821
-MonoBehaviour:
+--- !u!1 &5841594951918592891
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2876237255892130710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b479687a338da854d8881aa5d443ba5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseSensitivity: 250
-  turretHead: {fileID: 1325897932}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4214589305218889980}
+  m_Layer: 0
+  m_Name: TurretHeadPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4214589305218889980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5841594951918592891}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.40509295, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 456378117371339364}
+  m_Father: {fileID: 1325897932}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &7252391518077202506
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,6 +241,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8065519247121214192}
+  - component: {fileID: 6859061733498924805}
   m_Layer: 0
   m_Name: Laser Beamer
   m_TagString: Untagged
@@ -248,6 +266,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6859061733498924805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7252391518077202506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 140301211c36ae2409230808736776e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivity: 100
+  minYRotation: 50
+  maxYRotation: 130
+  minXRotation: 30
+  maxXRotation: 150
+  turretHead: {fileID: 4214589305218889980}
+  turretBase: {fileID: 1325897932}
 --- !u!1 &7300377259532595037
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,15 +310,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7300377259532595037}
-  m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0.20000008}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: -0.5}
+  m_LocalPosition: {x: 0, y: -0.2050929, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4550296627711937739}
-  m_Father: {fileID: 1325897932}
+  m_Father: {fileID: 4214589305218889980}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 90, z: -90}
+  m_LocalEulerAnglesHint: {x: -180, y: 180, z: 0}
 --- !u!33 &5247412371083384899
 MeshFilter:
   m_ObjectHideFlags: 0
