@@ -12,7 +12,7 @@ namespace TowerDefense.Agents
 	/// <summary>
 	/// An agent will follow a path of nodes
 	/// </summary>
-	[RequireComponent(typeof(NavMeshAgent)), RequireComponent(typeof(AttackAffector))]
+	[RequireComponent(typeof(NavMeshAgent))]
 	public abstract class Agent : Targetable
 	{	
 		/// <summary>

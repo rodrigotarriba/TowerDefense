@@ -7,6 +7,7 @@ public class ShotBehavior : MonoBehaviour
     public GameObject collisionExplosion;
     public float speed;
     [SerializeField] private LayerMask whatAreEnemies;
+    public int damageDealt;
 
 
     
@@ -44,6 +45,10 @@ public class ShotBehavior : MonoBehaviour
                 if (c.GetComponent<Transform>())
                 {
                     Debug.Log(c.name);
+                    if (c.GetComponent<NewEnemyDetection>())
+                    {
+                        c.GetComponent<NewEnemyDetection>().TakeDamage(damageDealt);
+                    }
                 }
             }
 

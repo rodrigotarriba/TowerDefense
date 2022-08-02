@@ -136,7 +136,7 @@ namespace Core.Camera
 		/// </summary>
 		protected virtual void Awake()
 		{
-			cachedCamera = GetComponent<UnityEngine.Camera>();
+			cachedCamera = GetComponent<CameraManager>().currentCamera;
 			m_FloorPlane = new Plane(Vector3.up, new Vector3(0.0f, floorY, 0.0f));
 			
 			// Set initial values
@@ -147,7 +147,8 @@ namespace Core.Camera
 			{
 				currentLookPosition = lookPosition = lookRay.GetPoint(dist);
 			}
-			cameraPosition = cachedCamera.transform.position;
+			//rtc removed this
+			//cameraPosition = cachedCamera.transform.position;
 
 			m_MinZoomRotation = Quaternion.FromToRotation(Vector3.up, -cachedCamera.transform.forward);
 			m_MaxZoomRotation = Quaternion.FromToRotation(Vector3.up, -zoomedCamAngle.transform.forward);
@@ -172,11 +173,13 @@ namespace Core.Camera
 			// Tracking?
 			if (trackingObject != null)
 			{
-				PanTo(trackingObject.transform.position);
+				//rtc removed this
+				//PanTo(trackingObject.transform.position);
 
 				if (!trackingObject.activeInHierarchy)
 				{
-					StopTracking();
+					//rtc removed this
+					//StopTracking();
 				}
 			}
 
@@ -184,12 +187,13 @@ namespace Core.Camera
 			currentLookPosition = Vector3.SmoothDamp(currentLookPosition, lookPosition, ref m_CurrentLookVelocity,
 			                                         lookDampFactor);
 
-			Vector3 worldPos = transform.position;
+			Vector3 worldPos = cachedCamera.transform.position;
 			worldPos = Vector3.SmoothDamp(worldPos, cameraPosition, ref m_CurrentCamVelocity,
 			                              movementDampFactor);
 
-			transform.position = worldPos;
-			transform.LookAt(currentLookPosition);
+			//removed these
+			//transform.position = worldPos;
+			//transform.LookAt(currentLookPosition);
 		}
 
 #if UNITY_EDITOR
@@ -205,7 +209,7 @@ namespace Core.Camera
 			}
 			if (cachedCamera == null)
 			{
-				cachedCamera = GetComponent<UnityEngine.Camera>();
+				cachedCamera = GetComponent<CameraManager>().currentCamera;
 			}
 			RecalculateBoundingRect();
 
@@ -398,6 +402,9 @@ namespace Core.Camera
 		/// </summary>
 		void RecalculateBoundingRect()
 		{
+			//rtcRemove - added the return to see if this helps
+			return;
+			
 			Rect mapsize = mapSize;
 
 			// Get some world space projections at this zoom level
