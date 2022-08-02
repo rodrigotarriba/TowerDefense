@@ -252,7 +252,7 @@ MonoBehaviour:
   controller: {fileID: 9139811051683556365}
   movementSpeed: 12
   gravity: -9.81
-  jumpHeight: 3
+  jumpHeight: 1
   groundCheck: {fileID: 9139811051865142429}
   groundDistance: 0.4
   groundMask:
@@ -471,6 +471,41 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4771016691947026, guid: 096f36dd2389e5e4c847b784dc053174, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23064953395802864, guid: 096f36dd2389e5e4c847b784dc053174,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23196731461333512, guid: 096f36dd2389e5e4c847b784dc053174,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23244528520075564, guid: 096f36dd2389e5e4c847b784dc053174,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23513372504934356, guid: 096f36dd2389e5e4c847b784dc053174,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23574535838442026, guid: 096f36dd2389e5e4c847b784dc053174,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23838012187063394, guid: 096f36dd2389e5e4c847b784dc053174,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23840565035692176, guid: 096f36dd2389e5e4c847b784dc053174,
+        type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
