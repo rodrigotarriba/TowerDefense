@@ -4,21 +4,29 @@ using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
+    [SerializeField]
+    private float despawnTimer;
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+    private GameObject explosion;
 
-    public float despawnTimer;
-    public float speed;
+    [SerializeField]
+    private Rigidbody rb;
 
-    public GameObject explosion;
+    private void Awake() {
+        rb = GetComponent<Rigidbody>();
+    }
     void Update()
     {
-        transform.Translate(Vector3.forward * speed* Time.deltaTime);
+        //transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        rb.AddForce(Vector3.forward*speed*Time.deltaTime);
         despawnTimer-=Time.deltaTime;
         if (despawnTimer <= 0)
         {
             Destroy(gameObject);
         }
     }
-
     private void OnCollisionEnter(Collision other) {
         if (other.gameObject.tag == "Player")
         {
@@ -26,6 +34,4 @@ public class ProjectileScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    
 }
