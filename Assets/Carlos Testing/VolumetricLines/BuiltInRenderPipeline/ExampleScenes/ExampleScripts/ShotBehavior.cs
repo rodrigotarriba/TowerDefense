@@ -6,6 +6,7 @@ public class ShotBehavior : MonoBehaviour
     public Vector3 m_target;
     public GameObject collisionExplosion;
     public float speed;
+    [SerializeField] private LayerMask whatAreEnemies;
 
 
     
@@ -33,8 +34,19 @@ public class ShotBehavior : MonoBehaviour
 
     void explode()
     {
+        
         if (collisionExplosion != null)
         {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 1.5f, whatAreEnemies);
+            
+            foreach(Collider c in colliders)
+            {
+                if (c.GetComponent<Transform>())
+                {
+                    Debug.Log(c.name);
+                }
+            }
+
             GameObject explosion = (GameObject)Instantiate(
                 collisionExplosion, transform.position, transform.rotation);
             Destroy(gameObject);
@@ -44,4 +56,5 @@ public class ShotBehavior : MonoBehaviour
 
     }
 
+    
 }

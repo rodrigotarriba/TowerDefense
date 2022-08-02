@@ -388,6 +388,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2823282300298531925}
   - component: {fileID: 3467653056181990198}
+  - component: {fileID: 932105902}
   m_Layer: 0
   m_Name: FirePoint
   m_TagString: Untagged
@@ -514,6 +515,21 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &932105902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2939877563643597583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d40f453207cdc14b8a30fabddd3b634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootRate: 0.2
+  turretPOV: {fileID: 5901910992972103686}
+  m_shotPrefab: {fileID: 136330, guid: 6f178b5659d957f49b939adfbdf67a10, type: 3}
 --- !u!1 &5841594951918592891
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +572,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8065519247121214192}
   - component: {fileID: 6859061733498924805}
-  - component: {fileID: 2863743526641233578}
   m_Layer: 0
   m_Name: Laser Beamer
   m_TagString: Untagged
@@ -600,20 +615,6 @@ MonoBehaviour:
   maxXRotation: 150
   turretHead: {fileID: 4214589305218889980}
   turretBase: {fileID: 1325897932}
---- !u!114 &2863743526641233578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7252391518077202506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d40f453207cdc14b8a30fabddd3b634, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootRate: 0.2
-  m_shotPrefab: {fileID: 136330, guid: 6f178b5659d957f49b939adfbdf67a10, type: 3}
 --- !u!1 &7300377259532595037
 GameObject:
   m_ObjectHideFlags: 0
