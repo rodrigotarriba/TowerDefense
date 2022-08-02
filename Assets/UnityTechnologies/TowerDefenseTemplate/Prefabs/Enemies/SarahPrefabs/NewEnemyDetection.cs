@@ -52,6 +52,8 @@ public class NewEnemyDetection : MonoBehaviour
     }
     public void TakeDamage(int taken){
         health-=taken;
+        Debug.Log("Damage taken:" + taken);
+        Debug.Log("Health: "+health);
         if (health<=0)
         {
             Destroy(gameObject);
