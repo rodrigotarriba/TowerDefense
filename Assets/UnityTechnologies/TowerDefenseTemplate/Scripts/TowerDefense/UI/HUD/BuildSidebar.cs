@@ -43,6 +43,7 @@ namespace TowerDefense.UI.HUD
 			{
 				gameUI.CancelGhostPlacement();
 			}
+			//mode that is initialized when clicking on the new tower to be built
 			gameUI.SetToBuildMode(towerData);
 		}
 

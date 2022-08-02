@@ -90,10 +90,11 @@ namespace Core.Input
 		/// </summary>
 		protected virtual void Update()
 		{
+			//rtc test1
 			if (cameraRig != null)
 			{
 				UpdateFlick();
-				DecayZoom();
+			//	DecayZoom();
 			}
 		}
 

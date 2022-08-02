@@ -2,6 +2,8 @@
 
 namespace Core.Camera
 {
+	//rtcRemove possibly cleanup this class entirely, move "object for the camera to look at initially" to each camera rig.
+	
 	/// <summary>
 	/// Simple class to set some initial state values for the camera
 	/// </summary>

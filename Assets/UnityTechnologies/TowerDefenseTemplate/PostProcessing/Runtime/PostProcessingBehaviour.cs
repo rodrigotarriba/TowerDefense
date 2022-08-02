@@ -9,7 +9,9 @@ namespace UnityEngine.PostProcessing
 #if UNITY_5_4_OR_NEWER
     [ImageEffectAllowedInSceneView]
 #endif
-    [RequireComponent(typeof(Camera)), DisallowMultipleComponent, ExecuteInEditMode]
+    [DisallowMultipleComponent, ExecuteInEditMode]
+    //rtcRemove clean this
+    //backup [RequireComponent(typeof(Camera)), DisallowMultipleComponent, ExecuteInEditMode]
     [AddComponentMenu("Effects/Post-Processing Behaviour", -1)]
     public class PostProcessingBehaviour : MonoBehaviour
     {
@@ -91,7 +93,7 @@ namespace UnityEngine.PostProcessing
             // All the per-frame initialization logic has to be done in OnPreCull instead of Update
             // because [ImageEffectAllowedInSceneView] doesn't trigger Update events...
 
-            m_Camera = GetComponent<Camera>();
+            m_Camera = GetComponent<CameraManager>().currentCamera;
 
             if (profile == null || m_Camera == null)
                 return;

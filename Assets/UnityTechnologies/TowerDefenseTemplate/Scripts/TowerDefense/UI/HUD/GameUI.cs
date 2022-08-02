@@ -29,7 +29,7 @@ namespace TowerDefense.UI.HUD
 		/// <summary>
 		/// The raycast hit object into the 3D scene
 		/// </summary>
-		public RaycastHit? raycast;
+		public RaycastHit? raycast; 
 
 		/// <summary>
 		/// True if this pointer started over a UI element or anything the event system catches
@@ -48,7 +48,7 @@ namespace TowerDefense.UI.HUD
 	///     </item>
 	/// </list>
 	/// </summary>
-	[RequireComponent(typeof(Camera))]
+	//[RequireComponent(typeof(Camera))]
 	public class GameUI : Singleton<GameUI>
 	{
 		/// <summary>
@@ -349,6 +349,7 @@ namespace TowerDefense.UI.HUD
 				throw new InvalidOperationException("Trying to enter Build mode when not in Normal mode");
 			}
 			
+			//Checks that there is no current tower in GameUI waiting to be placed - if it is, it destroys it to continue with the Set to Build Mode
 			if (m_CurrentTower != null)
 			{
 				// Destroy current ghost
@@ -388,6 +389,7 @@ namespace TowerDefense.UI.HUD
 
 			UIPointer pointer = WrapPointer(pointerInfo);
 			// Do nothing if we're over UI
+			
 			if (pointer.overUI && hideWhenInvalid)
 			{
 				m_CurrentTower.Hide();
@@ -732,6 +734,8 @@ namespace TowerDefense.UI.HUD
 		/// </exception>
 		public void MoveGhostToCenter()
 		{
+			//rtc
+			Debug.Log($"MoveGhostToCenter");
 			if (state != State.Building)
 			{
 				throw new InvalidOperationException("Trying to move ghost when not in Build Mode");
@@ -759,7 +763,7 @@ namespace TowerDefense.UI.HUD
 			base.Awake();
 
 			state = State.Normal;
-			m_Camera = GetComponent<Camera>();
+			m_Camera = GetComponent<CameraManager>().currentCamera;
 		}
 
 		/// <summary>
@@ -811,6 +815,8 @@ namespace TowerDefense.UI.HUD
 		/// </summary>
 		/// <param name="pointerInfo">The pointer to test</param>
 		/// <returns>True if the event system reports this pointer being over UI</returns>
+		/// 
+		//rtcNote - Imp
 		protected bool IsOverUI(PointerInfo pointerInfo)
 		{
 			int pointerId;
