@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using TowerDefense.Level;
+using Core.Health;
+using ActionGameFramework.Health;
 
 public class ShotBehavior : MonoBehaviour 
 {
@@ -8,6 +11,8 @@ public class ShotBehavior : MonoBehaviour
     public float speed;
     [SerializeField] private LayerMask whatAreEnemies;
     public int damageDealt;
+
+    public Damager damager;
 
 
     
@@ -49,6 +54,7 @@ public class ShotBehavior : MonoBehaviour
                     {
                         c.GetComponent<NewEnemyDetection>().TakeDamage(damageDealt);
                     }
+                    c.gameObject.GetComponent<DamageableBehaviour>().TakeDamage(damager.damage, c.gameObject.transform.position, damager.alignmentProvider);
                 }
             }
 
