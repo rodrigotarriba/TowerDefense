@@ -69,6 +69,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPlayerMode: 1
   currentCamera: {fileID: 0}
+  timerLaserTower: 6
+  timerText: {fileID: 0}
 --- !u!114 &1001447626
 MonoBehaviour:
   m_ObjectHideFlags: 0

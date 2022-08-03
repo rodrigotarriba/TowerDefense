@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 9139811051683556367}
   - component: {fileID: 4873982717639608893}
   - component: {fileID: 1793335580}
+  - component: {fileID: 791960781}
   m_Layer: 7
   m_Name: FPSPlayer
   m_TagString: Player
@@ -264,6 +265,24 @@ MonoBehaviour:
   sphere1: {fileID: 0}
   floatingMinePrefab: {fileID: 0}
   bulletSpeed: 0
+--- !u!114 &791960781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9139811051683556354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fedeb0b3c5e104ea19d0d4599d22ab97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  chanceToSpawnCollisionPrefab: 1
+  collisionParticles: {fileID: 0}
+  alignment:
+    unityObjectReference: {fileID: 11400000, guid: 2e20cdb38c63f4edf8ee385c50c089ce,
+      type: 2}
 --- !u!1 &9139811051865142418
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9139811052122657887
 Transform:
   m_ObjectHideFlags: 0
@@ -483,12 +502,12 @@ PrefabInstance:
     - target: {fileID: 3530781238962257966, guid: 3f6f5a40d904fca4a8c216df753ae309,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 91.9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3530781238962257966, guid: 3f6f5a40d904fca4a8c216df753ae309,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.42
+      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: 4875050230304032844, guid: 3f6f5a40d904fca4a8c216df753ae309,
         type: 3}
