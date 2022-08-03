@@ -21,6 +21,7 @@ public class TowerPortal : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             cameraManager.currentPlayerMode = PlayerMode.ShootingTower;
+            TurretController.turretEnable = true;
         }
     }
 

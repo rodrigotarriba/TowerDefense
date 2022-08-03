@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 136330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.1, y: -0.12, z: 0.1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_startPos: {x: 0, y: 0, z: 0}
   m_endPos: {x: 0, y: 0, z: 50}
   m_lineColor: {r: 1, g: 0, b: 0.10514355, a: 0}
-  m_lineWidth: 66
+  m_lineWidth: 1
   m_lightSaberFactor: 0.747
 --- !u!114 &11468384
 MonoBehaviour:

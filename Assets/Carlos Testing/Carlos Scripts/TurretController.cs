@@ -17,7 +17,7 @@ public class TurretController : MonoBehaviour
     [SerializeField] private Transform turretHead;
     [SerializeField] private Transform turretBase;
 
-
+    public static bool turretEnable = false;
     
     void Start()
     {
@@ -27,6 +27,7 @@ public class TurretController : MonoBehaviour
     
     void Update()
     {
+        if (turretEnable == false) { return; }
         AimTuret();
     }
 
