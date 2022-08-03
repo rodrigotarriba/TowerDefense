@@ -21,8 +21,8 @@ public class ProjectileScript : MonoBehaviour
     }
     void Update()
     {
-        //transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        rb.AddForce(Vector3.forward*speed*Time.deltaTime);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        //rb.AddForce(Vector3.forward*speed*Time.deltaTime);
         despawnTimer-=Time.deltaTime;
         if (despawnTimer <= 0)
         {
