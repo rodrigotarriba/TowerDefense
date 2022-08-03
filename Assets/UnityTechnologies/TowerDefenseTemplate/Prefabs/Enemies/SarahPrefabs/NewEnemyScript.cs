@@ -5,7 +5,7 @@ using UnityEngine;
 public class NewEnemyScript : MonoBehaviour
 {
 
-    //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA FUCK THIS
+    //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     // Start is called before the first frame update
 
     public PlayerTest currentTarget;

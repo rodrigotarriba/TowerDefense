@@ -108,7 +108,7 @@ namespace Core.Health
 		/// </summary>
 		protected virtual void Start()
 		{
-			m_CameraToFace = UnityEngine.Camera.main.transform;
+			m_CameraToFace = FindObjectOfType<CameraManager>().currentCamera.transform;
 		}
 
 		void OnHealthChanged(HealthChangeInfo healthChangeInfo)

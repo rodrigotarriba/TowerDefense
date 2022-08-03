@@ -77,7 +77,11 @@ namespace TowerDefense.Level
 		protected void Spawn()
 		{
 			SpawnInstruction spawnInstruction = spawnInstructions[m_CurrentIndex];
-			SpawnAgent(spawnInstruction.agentConfiguration, spawnInstruction.startingNode);
+			if (spawnInstruction.agentConfiguration == null)
+			{
+				SpawnAgent(spawnInstruction.prefab,spawnInstruction.startingNode);
+			}
+			else SpawnAgent(spawnInstruction.agentConfiguration, spawnInstruction.startingNode);
 		}
 
 		/// <summary>
@@ -122,6 +126,15 @@ namespace TowerDefense.Level
 			agentInstance.Initialize();
 			agentInstance.SetNode(node);
 			agentInstance.transform.rotation = node.transform.rotation;
+		}
+
+		protected virtual void SpawnAgent(GameObject prefab, Node node)
+		{
+			Vector3 spawnPosition = node.GetRandomPointInNodeArea();
+			
+			Instantiate(prefab, node.transform.position, Quaternion.identity);
+			prefab.transform.position = spawnPosition;
+			
 		}
 
 		/// <summary>

@@ -180,6 +180,8 @@ namespace Core.Input
 		/// </summary>
 		void UpdateMouse()
 		{
+			
+			//Detect if the mouse moved in this frame
 			basicMouseInfo.previousPosition = basicMouseInfo.currentPosition;
 			basicMouseInfo.currentPosition = UnityInput.mousePosition;
 			basicMouseInfo.delta = basicMouseInfo.currentPosition - basicMouseInfo.previousPosition;

@@ -3,31 +3,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using TowerDefense.Agents;
 
 public class NewEnemyDetection : MonoBehaviour
 {
+    [SerializeField]
+    private int health;
+    [SerializeField]
+    private int damage;
+    [SerializeField]
+    private GameObject projectilePrefab;
+    [SerializeField]
+    private float bulletTimer;
+    [SerializeField]
+    private float bulletSpeed;
+    [SerializeField]
+    private NavMeshAgent navMesh;
+    [SerializeField]
+    private Transform endPoint;
+    protected bool isAttacking;
 
-
-    public GameObject projectilePrefab;
-    public float bulletTimer;
-    public float bulletSpeed;
-
-    public NavMeshAgent navMesh;
-
-    public Transform endPoint;
-    public bool isAttacking;
-    // Start is called before the first frame update
-
-    //don't need to make a list since there is only 1 player at a time
+    public GameObject spawnpoint;
 
     private void Awake() {
-        navMesh.SetDestination(endPoint.position);
+        navMesh.SetDestination(GameObject.Find("HeadQuarters").transform.position);
     }
     private void OnTriggerEnter(Collider other) {
         Debug.Log(other);
         if (other.gameObject.name == "End")
         {
             Destroy(gameObject);
+        }
+        if (other.gameObject.tag == "Bullet")
+        {
+            TakeDamage(damage);
         }
         
     }
@@ -40,13 +49,22 @@ public class NewEnemyDetection : MonoBehaviour
             {
                StartCoroutine(Attack(playerPos));
             }
-            
         }
     }
-    IEnumerator Attack(Vector3 pos){
+    public void TakeDamage(int taken){
+        health-=taken;
+        Debug.Log("Damage taken:" + taken);
+        Debug.Log("Health: "+health);
+        if (health<=0)
+        {
+            Destroy(gameObject);
+        }
+    }
+    private IEnumerator Attack(Vector3 pos){
         isAttacking=true;
         Debug.Log("Attacking");   
         GameObject prefab = Instantiate(projectilePrefab, gameObject.transform.position, Quaternion.identity);
+        Debug.Log(prefab.transform.position);
         prefab.transform.LookAt(pos);
         yield return new WaitForSeconds(bulletTimer);
         isAttacking=false;

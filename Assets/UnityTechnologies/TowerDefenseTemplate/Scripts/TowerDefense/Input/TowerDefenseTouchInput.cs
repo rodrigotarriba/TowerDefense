@@ -306,6 +306,7 @@ namespace TowerDefense.Input
 				}
 				else
 				{
+					//rtcRemove might need to remove this section to avoid an error trying to move the camera
 					// Do normal base behaviour only if no ghost selected
 					if (cameraRig != null)
 					{
