@@ -21,9 +21,11 @@ public class CameraManager : MonoBehaviour
     private PlayerManager[] allPlayersInLevel;
     private PlayerManager currentPlayer;
 
-    public int timerLaserTower;
+    public float timerLaserTower;
 
     public TextMeshProUGUI timerText;
+
+    public float timerMax;
 
     public void Awake()
     {
@@ -71,7 +73,10 @@ public class CameraManager : MonoBehaviour
             LevelManager.instance.BuildingCompleted();
         }
             
-            
+        if(TurretController.turretEnable == true)
+        {
+            LaserTowerTimerCD();
+        }  
     }
 
 
@@ -81,7 +86,8 @@ public class CameraManager : MonoBehaviour
         //If its laser, only do it X seconds
         if (newPlayerMode == PlayerMode.ShootingTower)
         {
-            StartCoroutine(LaserTowerTimer());
+            //StartCoroutine(LaserTowerTimer());
+            timerText.gameObject.SetActive(true);
         }
 
         //Disable all player modes for safety, then enable the necessary one
@@ -126,6 +132,21 @@ public class CameraManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
+        
+    } 
+    private void LaserTowerTimerCD()
+    {
+        timerLaserTower = timerLaserTower -  Time.deltaTime;
+        timerText.text = timerLaserTower.ToString();
+
+        if (timerLaserTower < 0)
+        {
+            timerLaserTower = timerMax;
+            timerLaserTower = 6.0f;
+            currentPlayerMode = PlayerMode.FPS;
+            timerText.gameObject.SetActive(false);
+            TurretController.turretEnable = false;
+        }
         
     }
 

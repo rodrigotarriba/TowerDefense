@@ -227,6 +227,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 65536
+  health: 10
 --- !u!114 &4873982717639608893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +262,7 @@ MonoBehaviour:
   aimingSpeed: 5
   bulletHit: {fileID: 8243919193239906343, guid: a32df7cdc06e9e2469408a248bbcf454,
     type: 3}
+  damageDone: 1
   playerCamera: {fileID: 2039644007246035427}
   sphere1: {fileID: 0}
   floatingMinePrefab: {fileID: 0}

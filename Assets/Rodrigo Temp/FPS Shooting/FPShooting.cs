@@ -75,14 +75,10 @@ public class FPShooting : MonoBehaviour
         if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, weaponStats.range, ~playerMask))
         {
 
-            if(hit.collider.gameObject.layer == (1 << 17))
+            if(hit.collider.gameObject.layer == (1 << 17) || hit.collider.gameObject.layer == (1 << 11))
             {
-                Debug.Log($"generateDamage");
+                
             }
-            
-            Debug.Log($"We hit {LayerMask.LayerToName(hit.collider.gameObject.layer)}");
-
-            Instantiate(bulletHit, hit.point, Quaternion.identity);
 
             if (hit.collider.gameObject.GetComponent<NewEnemyDetection>())
             {
@@ -90,6 +86,10 @@ public class FPShooting : MonoBehaviour
             }
 
             else hit.collider.gameObject.GetComponent<DamageableBehaviour>().TakeDamage(FPSDamager.damage, hit.point, FPSDamager.alignmentProvider);
+
+            Instantiate(bulletHit, hit.point, Quaternion.identity);
+
+            
 
 
         }

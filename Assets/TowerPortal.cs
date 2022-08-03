@@ -22,6 +22,7 @@ public class TowerPortal : MonoBehaviour
         {
             cameraManager.currentPlayerMode = PlayerMode.ShootingTower;
             TurretController.turretEnable = true;
+            other.gameObject.transform.position = other.gameObject.transform.position + new Vector3(-1.5f, 0f, -1.5f);
         }
     }
 

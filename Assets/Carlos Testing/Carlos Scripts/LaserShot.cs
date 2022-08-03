@@ -15,6 +15,7 @@ public class LaserShot : MonoBehaviour
 
     void Update()
     {
+        if (TurretController.turretEnable == false) { return; }
 
         if (Input.GetMouseButton(0))
         {
