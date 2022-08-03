@@ -39,6 +39,7 @@ public class TurretController : MonoBehaviour
 
         // rotate the turret head along the y axis
         float vertical = Input.GetAxis("Mouse Y");
+        //float newTurretHeadRotation = turretHead.transform.localRotation.eulerAngles.z - mouseSensitivity * vertical;
         float newTurretHeadRotation = turretHead.transform.localRotation.eulerAngles.x + mouseSensitivity * vertical;
 
 
@@ -49,6 +50,7 @@ public class TurretController : MonoBehaviour
         // apply the rotation
         turretBase.localRotation = Quaternion.Euler(0f, newTurretBaseRotation, 0f);
         turretHead.localRotation = Quaternion.Euler(newTurretHeadRotation, 0f, 0f);
+        //turretHead.localRotation = Quaternion.Euler(0f, 0f, newTurretHeadRotation);
 
     }
 }
