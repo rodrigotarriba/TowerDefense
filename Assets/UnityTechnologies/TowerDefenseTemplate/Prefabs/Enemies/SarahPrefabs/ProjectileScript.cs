@@ -14,6 +14,8 @@ public class ProjectileScript : MonoBehaviour
     [SerializeField]
     private Rigidbody rb;
 
+    public int damage;
+
     private void Awake() {
         rb = GetComponent<Rigidbody>();
     }
@@ -30,6 +32,7 @@ public class ProjectileScript : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         if (other.gameObject.tag == "Player")
         {
+            other.gameObject.GetComponent<PlayerMovement>().TakeDamage(damage);
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

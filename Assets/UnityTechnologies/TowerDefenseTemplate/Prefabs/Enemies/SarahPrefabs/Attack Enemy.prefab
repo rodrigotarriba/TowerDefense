@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 20268383}
   - component: {fileID: 20268384}
   - component: {fileID: 1237367569}
+  - component: {fileID: -7372099784414650512}
   m_Layer: 11
   m_Name: Attack Enemy
   m_TagString: Untagged
@@ -174,6 +175,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-7372099784414650512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220510985877104615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d007c1fe5e41c1888e4af3392f8676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialPoolCapacity: 10
 --- !u!1 &4671303605495327955
 GameObject:
   m_ObjectHideFlags: 0

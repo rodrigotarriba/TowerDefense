@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 fallingVelocity;
     bool isGrounded;
 
+    public int health;
+
     // Update is called once per frame
     void Update()
     {
@@ -56,6 +58,17 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(fallingVelocity * Time.deltaTime);
 
+        if (health <= 0)
+        {
+            Time.timeScale = 0;
+            Debug.Log("Player died!");
+        }
+
 
     }
+
+    public void TakeDamage(int damage){
+        health-=damage;
+    }
+
 }

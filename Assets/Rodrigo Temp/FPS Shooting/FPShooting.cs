@@ -14,6 +14,8 @@ public class FPShooting : MonoBehaviour
     public float aimingSpeed; //.1 meter per second
     public GameObject bulletHit;
 
+    public int damageDone;
+
     [SerializeField]
     private Camera playerCamera;
 
@@ -81,6 +83,11 @@ public class FPShooting : MonoBehaviour
             Debug.Log($"We hit {LayerMask.LayerToName(hit.collider.gameObject.layer)}");
 
             Instantiate(bulletHit, hit.point, Quaternion.identity);
+
+            if (hit.collider.gameObject.GetComponent<NewEnemyDetection>())
+            {
+                hit.collider.gameObject.GetComponent<NewEnemyDetection>().TakeDamage(damageDone);
+            }
 
             hit.collider.gameObject.GetComponent<DamageableBehaviour>().TakeDamage(FPSDamager.damage, hit.point, FPSDamager.alignmentProvider);
 
