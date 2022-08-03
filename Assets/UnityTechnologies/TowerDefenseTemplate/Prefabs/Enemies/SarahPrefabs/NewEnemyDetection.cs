@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using TowerDefense.Agents;
 
 public class NewEnemyDetection : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class NewEnemyDetection : MonoBehaviour
     public GameObject spawnpoint;
 
     private void Awake() {
-        navMesh.SetDestination(endPoint.position);
+        navMesh.SetDestination(GameObject.Find("HeadQuarters").transform.position);
     }
     private void OnTriggerEnter(Collider other) {
         Debug.Log(other);

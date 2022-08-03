@@ -89,7 +89,7 @@ public class FPShooting : MonoBehaviour
                 hit.collider.gameObject.GetComponent<NewEnemyDetection>().TakeDamage(damageDone);
             }
 
-            hit.collider.gameObject.GetComponent<DamageableBehaviour>().TakeDamage(FPSDamager.damage, hit.point, FPSDamager.alignmentProvider);
+            else hit.collider.gameObject.GetComponent<DamageableBehaviour>().TakeDamage(FPSDamager.damage, hit.point, FPSDamager.alignmentProvider);
 
 
         }

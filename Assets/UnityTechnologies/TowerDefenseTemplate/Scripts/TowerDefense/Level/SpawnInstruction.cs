@@ -16,6 +16,8 @@ namespace TowerDefense.Level
 		/// </summary>
 		public AgentConfiguration agentConfiguration;
 
+		public GameObject prefab;
+
 		/// <summary>
 		/// The delay from the previous spawn until when this agent is spawned
 		/// </summary>
