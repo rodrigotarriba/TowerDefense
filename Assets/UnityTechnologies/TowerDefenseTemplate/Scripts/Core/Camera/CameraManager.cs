@@ -5,6 +5,7 @@ using System.Linq;
 using TowerDefense.UI.HUD;
 using TowerDefense.Level;
 using TowerDefense.Towers;
+using TMPro;
 
 /// <summary>
 /// Handles use of multiple cameras during game and their respective player control settings 
@@ -19,6 +20,10 @@ public class CameraManager : MonoBehaviour
 
     private PlayerManager[] allPlayersInLevel;
     private PlayerManager currentPlayer;
+
+    public int timerLaserTower;
+
+    public TextMeshProUGUI timerText;
 
     public void Awake()
     {
@@ -73,7 +78,12 @@ public class CameraManager : MonoBehaviour
     public void UpdatePlayerMode(PlayerMode newPlayerMode)
     {
 
-        
+        //If its laser, only do it X seconds
+        if (newPlayerMode == PlayerMode.ShootingTower)
+        {
+            StartCoroutine(LaserTowerTimer());
+        }
+
         //Disable all player modes for safety, then enable the necessary one
         foreach (var player in allPlayersInLevel)
         {
@@ -87,11 +97,50 @@ public class CameraManager : MonoBehaviour
         currentCamera = currentPlayer.playerCamera;
 
 
+
     }
 
 
 
+    IEnumerator LaserTowerTimer()
+    {
+        timerText.gameObject.SetActive(true);
+        float newTime = 0f;
+        var initialTime = Time.time;
+        var finalTime = initialTime + timerLaserTower;
+
+        for(var num=0; num <= timerLaserTower; num++)
+        {
+            newTime = finalTime - initialTime;
+            timerText.text = newTime.ToString();
+            
+            if(newTime <= 0)
+            {
+                newTime = 0;
+                timerText.text = newTime.ToString();
+                currentPlayerMode = PlayerMode.FPS;
+                timerText.gameObject.SetActive(false);
+                break;
+            }
+            
+            yield return new WaitForEndOfFrame();
+        }
+
+        
+    }
+
+
+
+
+
+
+
+
 }
+
+
+
+
 
 
 
@@ -109,3 +158,4 @@ public enum PlayerMode
     ShootingTower,
 
 }
+

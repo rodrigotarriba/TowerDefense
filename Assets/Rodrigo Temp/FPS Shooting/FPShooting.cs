@@ -4,31 +4,47 @@ using TowerDefense.Level;
 using TowerDefense.Towers;
 using UnityEngine;
 using TowerDefense.Level;
+using Core.Health;
+using ActionGameFramework.Health;
 
 public class FPShooting : MonoBehaviour
 {
-    public FPSWeapon weapon;
+    public FPSWeapon weaponStats;
+    public Transform weaponPrefab;
+    public float aimingSpeed; //.1 meter per second
+    public GameObject bulletHit;
 
     [SerializeField]
     private Camera playerCamera;
 
+    /// <summary>
+    /// Layer to be used for our ground enemies
+    /// </summary>
+    private int playerMask = 1 << 7;
 
-    private LayerMask groundEnemyMask;
-    private LayerMask flyingEnemyMask;
+
+    public GameObject sphere1;
+    public GameObject floatingMinePrefab;
+
+    private Damager FPSDamager;
+
+
+    /// <summary>
+    /// Bullet Speed Factor in Meters/Seconds
+    /// </summary>
+    public float bulletSpeed;
 
     private void Awake()
     {
-        groundEnemyMask = LayerMask.NameToLayer("GroundEnemies");
-        flyingEnemyMask = LayerMask.NameToLayer("FlyingEnemies");
 
     }
 
 
     private void Start()
     {
+        FPSDamager =  GetComponent<Damager>();
         
-        
-        
+
         if (playerCamera == null)
         {
             Debug.LogError("PlayerShoot: No camera referenced!");
@@ -39,21 +55,39 @@ public class FPShooting : MonoBehaviour
 
     private void Update()
     {
+        //Aim();
+        
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log($"hit the fan!");
+            //hit detection
             Shoot();
         }
     }
+
+
 
     void Shoot()
     {
         RaycastHit hit;
 
+        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, weaponStats.range, ~playerMask))
+        {
 
-        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, weapon.range, groundEnemyMask)){
-            Debug.Log($"We hit {hit.collider.name}");
+            if(hit.collider.gameObject.layer == (1 << 17))
+            {
+                Debug.Log($"generateDamage");
+            }
+            
+            Debug.Log($"We hit {LayerMask.LayerToName(hit.collider.gameObject.layer)}");
+
+            Instantiate(bulletHit, hit.point, Quaternion.identity);
+
+            hit.collider.gameObject.GetComponent<DamageableBehaviour>().TakeDamage(FPSDamager.damage, hit.point, FPSDamager.alignmentProvider);
+
+
         }
 
     }
+
+
 }
